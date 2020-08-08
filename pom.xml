@@ -12,7 +12,6 @@
     <packaging>pom</packaging>
 
     <modules>
-    <module>hqwmall-product</module>
         <module>hqwmall-order</module>
         <module>hqwmall-member</module>
         <module>hqwmall-coupon</module>
