@@ -14,8 +14,6 @@
     <modules>
         <module>hqwmall-order</module>
         <module>hqwmall-member</module>
-        <module>hqwmall-coupon</module>
-        <module>hqwmall-ware</module>
         <module>renren-fast</module>
         <module>hqwmall-product</module>
     </modules>
