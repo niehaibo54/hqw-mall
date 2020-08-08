@@ -17,6 +17,7 @@
         <module>renren-fast</module>
         <module>hqwmall-common</module>
         <module>renren-generator</module>
+        <module>hqwmall-product</module>
     </modules>
 
 
