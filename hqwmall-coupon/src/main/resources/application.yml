@@ -1,14 +1,20 @@
 server:
-  port: 8000
+  port: 8001
 
 spring:
-    datasource:
-        type: com.alibaba.druid.pool.DruidDataSource
-        druid:
-            driver-class-name: com.mysql.jdbc.Driver
-            url: jdbc:mysql://localhost:3306/hqwmall_sms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-            username: niehaibo
-            password: niehaibo
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/hqwmall_sms??useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: niehaibo
+    password: niehaibo
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.36:8848
+  application:
+    name: hqwmall-coupon
+
+
 
 
 mybatis-plus:

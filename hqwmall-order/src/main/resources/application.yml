@@ -1,12 +1,16 @@
-spring:
-    datasource:
-        type: com.alibaba.druid.pool.DruidDataSource
-        druid:
-            driver-class-name: com.mysql.jdbc.Driver
-            url: jdbc:mysql://localhost:3306/hqwmall_oms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-            username: niehaibo
-            password: niehaibo
 
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/hqwmall-ums
+    data-username: niehaibo
+    data-password: niehaibo
+    driver-class-name: com.mysql.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.36:8848
+  application:
+    name: hqwmall_order
 
 mybatis-plus:
   mapper-locations: classpath:mapper/**/*.xml
@@ -14,4 +18,4 @@ mybatis-plus:
     db-config:
       id-type: auto
 server:
-  port: 9000
+  port: 8003

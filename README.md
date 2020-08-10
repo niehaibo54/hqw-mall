@@ -8,6 +8,13 @@ com.huaying.hqwmall.xxx(product/order/member)
 
 #### 软件架构
 软件架构说明
+SpringCloud-Alibaba Nacos 服务注册中心，配置中心
+SpringCloud-Feign 远程服务调用
+SpringCloud-Ribbon 远程服务调用
+SpringCloud-Alibaba Sentinel 服务容错(限流，降级，熔断)
+SpringCloud-GetWay:API 网关
+SpringCloud Alibaba-Seata 分布式事物解决方案
+
 
 
 #### 安装教程
