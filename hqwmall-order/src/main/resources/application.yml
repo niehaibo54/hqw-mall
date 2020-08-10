@@ -1,0 +1,17 @@
+spring:
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        druid:
+            driver-class-name: com.mysql.jdbc.Driver
+            url: jdbc:mysql://localhost:3306/hqwmall_oms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+            username: niehaibo
+            password: niehaibo
+
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+server:
+  port: 9000

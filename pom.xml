@@ -19,6 +19,7 @@
         <module>renren-generator</module>
         <module>hqwmall-product</module>
         <module>hqwmall-coupon</module>
+        <module>hqwmall-ware</module>
     </modules>
 
 
