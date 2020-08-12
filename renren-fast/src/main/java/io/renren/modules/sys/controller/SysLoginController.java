@@ -79,7 +79,7 @@ public class SysLoginController extends AbstractController {
 
 		//账号锁定
 		if(user.getStatus() == 0){
-			return R.error("账号已被锁定,请联系管理员");
+			return R.error("账号已被 锁定,请联系管理员");
 		}
 
 		//生成token，并保存到数据库

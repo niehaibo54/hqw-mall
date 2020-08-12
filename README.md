@@ -1,12 +1,14 @@
 # hqw-mall
 
 #### 介绍
-华禽商城
+xx微服务商城
 
 ### 包名
 com.huaying.hqwmall.xxx(product/order/member)
 
 #### 软件架构
+JDK1.8
+Maven
 软件架构说明
 SpringCloud-Alibaba Nacos 服务注册中心，配置中心
 SpringCloud-Feign 远程服务调用

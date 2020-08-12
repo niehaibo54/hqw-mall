@@ -20,6 +20,7 @@
         <module>hqwmall-product</module>
         <module>hqwmall-coupon</module>
         <module>hqwmall-ware</module>
+        <module>hqwmall-gateway</module>
     </modules>
 
 
@@ -58,7 +59,7 @@
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2.1.0.RELEASE</version>
+                <version>2.2.0.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

@@ -1,0 +1,24 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    #网关路由规则
+    gateway:
+      routes:
+        - id: test_route
+          uri: https://www.baidu.com
+          predicates:
+           - Query=url,baidu
+
+        - id: qq_route
+          uri: https://www.qq.com
+          predicates:
+           - Query=url,qq
+  application:
+    name: hqwmall-gateway
+
+server:
+  port: 88
+
+

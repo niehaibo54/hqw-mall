@@ -23,6 +23,7 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoDao, SkuInfoEntity> i
                 new QueryWrapper<SkuInfoEntity>()
         );
 
+
         return new PageUtils(page);
     }
 
