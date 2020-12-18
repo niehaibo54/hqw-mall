@@ -16,6 +16,7 @@
         <module>hqwmall-member</module>
         <module>renren-fast</module>
         <module>hqwmall-common</module>
+        <!--代码生成器-->
         <module>renren-generator</module>
         <module>hqwmall-product</module>
         <module>hqwmall-coupon</module>

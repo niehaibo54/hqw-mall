@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
+import com.huaying.common.utils.OutputJsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,10 +37,9 @@ public class OrderController {
      */
     @RequestMapping("/list")
     //@RequiresPermissions("order:order:list")
-    public R list(@RequestParam Map<String, Object> params){
+    public OutputJsonResult list(@RequestParam Map<String, Object> params){
         PageUtils page = orderService.queryPage(params);
-
-        return R.ok().put("page", page);
+        return OutputJsonResult.ok().put("page", page);
     }
 
 
