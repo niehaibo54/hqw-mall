@@ -15,6 +15,7 @@ public class ActivemqProducerTest {
        connection.start();
 
        //创建会话SESSION
+        
         //两个参数，第一个叫事务，第二个叫签收
        Session session =connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
        //创建目的地
