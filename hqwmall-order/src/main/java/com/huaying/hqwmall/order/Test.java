@@ -9,6 +9,7 @@ public class Test {
       OrderEntity a = new OrderEntity();
 
       //反射11111
+        //test 分支
       Class o  = Class.forName("com.huaying.hqwmall.order.entity.OrderEntity");
       OrderEntity b = (OrderEntity) o.newInstance();
       System.out.println(b.getReceiverCity());
