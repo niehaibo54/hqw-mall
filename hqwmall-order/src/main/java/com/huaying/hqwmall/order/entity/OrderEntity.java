@@ -190,4 +190,11 @@ public class OrderEntity implements Serializable {
 	 */
 	private Date modifyTime;
 
+	public OrderEntity() {
+		this.receiverCity = "河南";
+	}
+
+	public String getM(){
+		return null;
+	}
 }
