@@ -17,18 +17,6 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 /**
  * <P>
  * File name : PageData.java
- * </P>
- * <P>
- * Author : zhangyq
- * </P>
- * <P>
- * Date : 2015年7月3日下午5:34:03
- * </P>
- * <P>
- * Desc : 收集请求数据
- * </P>
- * <P>
- * Update History :
  * <ul>
  * <li></li>
  * <li></li>
