@@ -1,6 +1,9 @@
 package com.huaying.hqwmall.order.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.huaying.common.page.PageData;
 import com.huaying.common.utils.PageUtils;
 import com.huaying.hqwmall.order.entity.OrderEntity;
 
@@ -16,5 +19,9 @@ import java.util.Map;
 public interface OrderService extends IService<OrderEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    int save(PageData pd)throws Exception;
+
+    IPage<PageData> orderListPage(PageData pd);
 }
 

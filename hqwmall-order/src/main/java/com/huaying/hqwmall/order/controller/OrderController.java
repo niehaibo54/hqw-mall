@@ -1,23 +1,20 @@
 package com.huaying.hqwmall.order.controller;
 
-import java.util.Arrays;
-import java.util.Map;
 
-//import org.apache.shiro.authz.annotation.RequiresPermissions;
-import com.huaying.common.utils.OutputJsonResult;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.huaying.hqwmall.order.entity.OrderEntity;
-import com.huaying.hqwmall.order.service.OrderService;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.huaying.common.controller.BaseController;
+import com.huaying.common.page.PageData;
+import com.huaying.common.page.Result;
 import com.huaying.common.utils.PageUtils;
 import com.huaying.common.utils.R;
-
-
+import com.huaying.hqwmall.order.entity.OrderEntity;
+import com.huaying.hqwmall.order.service.OrderService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 订单
@@ -27,64 +24,61 @@ import com.huaying.common.utils.R;
  * @date 2020-08-10 11:58:59
  */
 @RestController
-@RequestMapping("order/order")
-public class OrderController {
+@RequestMapping("order")
+@Slf4j
+public class OrderController extends BaseController {
     @Autowired
     private OrderService orderService;
-
-    /**
-     * 列表
-     */
-    @RequestMapping("/list")
-    //@RequiresPermissions("order:order:list")
-    public OutputJsonResult list(@RequestParam Map<String, Object> params){
-        PageUtils page = orderService.queryPage(params);
-        return OutputJsonResult.ok().put("page", page);
-    }
-
-
-    /**
-     * 信息
-     */
-    @RequestMapping("/info/{id}")
-    //@RequiresPermissions("order:order:info")
-    public R info(@PathVariable("id") Long id){
-		OrderEntity order = orderService.getById(id);
-
-        return R.ok().put("order", order);
-    }
 
     /**
      * 保存
      */
     @RequestMapping("/save")
-    //@RequiresPermissions("order:order:save")
-    public R save(@RequestBody OrderEntity order){
-		orderService.save(order);
-
-        return R.ok();
+    public Result save(){
+        Result result = new Result<>();
+        PageData pd = this.getPageData();
+        try {
+        orderService.save(pd);
+            result.success("添加成功！");
+        } catch (Exception e) {
+            log.error(e.getMessage(),e);
+            result.setCode(500);
+            result.setMessage(e.getMessage());
+        }
+        return result;
     }
 
-    /**
-     * 修改
-     */
-    @RequestMapping("/update")
-    //@RequiresPermissions("order:order:update")
-    public R update(@RequestBody OrderEntity order){
-		orderService.updateById(order);
 
-        return R.ok();
+
+    @RequestMapping("/list")
+    public Result list(){
+        Result result = new Result<>();
+        PageData pd = this.getPageData();
+        try {
+            result.setResult(orderService.list());
+            result.success("成功！");
+        } catch (Exception e) {
+            log.error(e.getMessage(),e);
+            result.error500("查询失败");
+        }
+        return result;
     }
 
-    /**
-     * 删除
-     */
-    @RequestMapping("/delete")
-   // @RequiresPermissions("order:order:delete")
-    public R delete(@RequestBody Long[] ids){
-		orderService.removeByIds(Arrays.asList(ids));
 
-        return R.ok();
+
+    @RequestMapping("/listPage")
+    public Result listPage(){
+        Result result = new Result<>();
+        PageData pd = this.getPageData();
+        try {
+            IPage<PageData> page = orderService.orderListPage(pd);
+            result.setResult(page);
+        } catch (Exception e) {
+            log.error(e.getMessage(),e);
+            result.setCode(500);
+            result.setMessage(e.getMessage());
+        }
+        return result;
     }
 
 }
