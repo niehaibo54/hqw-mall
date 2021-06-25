@@ -1,15 +1,10 @@
 package com.huaying.hqwmall.order.controller;
 
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.huaying.common.controller.BaseController;
 import com.huaying.common.page.PageData;
 import com.huaying.common.page.Result;
-import com.huaying.common.utils.PageUtils;
-import com.huaying.common.utils.R;
-import com.huaying.hqwmall.order.entity.OrderEntity;
 import com.huaying.hqwmall.order.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,50 +29,36 @@ public class OrderController extends BaseController {
      * 保存
      */
     @RequestMapping("/save")
-    public Result save(){
+    public Result save() {
         Result result = new Result<>();
         PageData pd = this.getPageData();
         try {
-        orderService.save(pd);
+            orderService.save(pd);
             result.success("添加成功！");
         } catch (Exception e) {
-            log.error(e.getMessage(),e);
+            log.error(e.getMessage(), e);
             result.setCode(500);
             result.setMessage(e.getMessage());
         }
         return result;
     }
-
 
 
     @RequestMapping("/list")
-    public Result list(){
+    public Result list() {
         Result result = new Result<>();
         PageData pd = this.getPageData();
-        try {
-            result.setResult(orderService.list());
-            result.success("成功！");
-        } catch (Exception e) {
-            log.error(e.getMessage(),e);
-            result.error500("查询失败");
-        }
+        result.setResult(orderService.list());
         return result;
     }
 
 
-
     @RequestMapping("/listPage")
-    public Result listPage(){
+    public Result listPage() {
         Result result = new Result<>();
         PageData pd = this.getPageData();
-        try {
-            IPage<PageData> page = orderService.orderListPage(pd);
-            result.setResult(page);
-        } catch (Exception e) {
-            log.error(e.getMessage(),e);
-            result.setCode(500);
-            result.setMessage(e.getMessage());
-        }
+        IPage<PageData> page = orderService.orderListPage(pd);
+        result.setResult(page);
         return result;
     }
 
