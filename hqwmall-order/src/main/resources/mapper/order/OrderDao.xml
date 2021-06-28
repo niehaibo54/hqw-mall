@@ -49,5 +49,14 @@
         <result property="modifyTime" column="modify_time"/>
     </resultMap>
 
+    <select id="orderListPage" parameterType="Object" resultType="pd">
+       select id,order_sn as orderSn from oms_order
+          where 1=1
+           <if test="orderSn !=null and orderSn!=''">
+             and order_sn=#{orderSn}
+           </if>
+
+
+    </select>
 
 </mapper>
