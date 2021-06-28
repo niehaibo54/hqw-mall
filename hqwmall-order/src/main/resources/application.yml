@@ -1,21 +1,31 @@
+server:
+  port: 8004
+
 
 spring:
+  #数据源配置
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/hqwmall-ums
-    data-username: niehaibo
-    data-password: niehaibo
-    driver-class-name: com.mysql.jdbc.Driver
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 192.168.1.36:8848
+    url: jdbc:mysql://192.168.174.12:3306/gulimall_pms?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: niehaibo
+   # password: NieHaiBo123456！
+    password: niehaibo
+    driver-class-name: com.mysql.jdbc.Driver #驱动
+  #服务名
   application:
-    name: hqwmall_order
+    name: hqwmall_product
 
+
+#mybatis配置
 mybatis-plus:
   mapper-locations: classpath:mapper/**/*.xml
   global-config:
     db-config:
       id-type: auto
-server:
-  port: 8003
+
+
+
+
+
+
+
+
