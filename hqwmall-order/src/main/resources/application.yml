@@ -5,12 +5,11 @@ spring:
     username: dev
     password: Dev123456
     driver-class-name: com.mysql.cj.jdbc.Driver
-#  cloud:
-#    nacos:
-#      discovery:
-#        server-addr: 192.168.1.36:8848
-  application:
-    name: hqwmall_order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 10.86.11.16:8848
+
 
 mybatis-plus:
   mapper-locations: classpath:mapper/**/*.xml

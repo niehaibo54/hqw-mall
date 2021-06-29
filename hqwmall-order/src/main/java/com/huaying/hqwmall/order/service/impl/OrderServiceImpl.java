@@ -67,4 +67,9 @@ public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> impleme
         return lists;
     }
 
+    @Override
+    public String test() {
+        return "66666666";
+    }
+
 }

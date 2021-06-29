@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.huaying.common.page.PageData;
 import com.huaying.common.utils.PageUtils;
 import com.huaying.hqwmall.order.entity.OrderEntity;
+import org.springframework.cloud.openfeign.FeignClient;
 
 import java.util.Map;
 
@@ -16,6 +17,8 @@ import java.util.Map;
  * @email 838600724@qq.com
  * @date 2020-08-10 11:58:59
  */
+
+
 public interface OrderService extends IService<OrderEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
@@ -23,5 +26,7 @@ public interface OrderService extends IService<OrderEntity> {
     int save(PageData pd)throws Exception;
 
     IPage<PageData> orderListPage(PageData pd);
+
+    String test();
 }
 
